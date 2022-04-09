@@ -155,6 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd7da6f00840ff44ad10b89c43a5853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashingDuration: 0.5
+  flashingDuration: 0.25
   firstSprite: {fileID: 0}
   secondSprite: {fileID: 0}
