@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 790995432775314405}
   - component: {fileID: 112798155054343755}
   - component: {fileID: 5046155910458600532}
-  - component: {fileID: 8464460190719949313}
+  - component: {fileID: 275535358373071468}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -67,7 +67,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   damage: 1
   isProjectile: 1
-  isPiercing: 1
+  isPiercing: 0
   velocity: 0
   direction: {x: 0, y: 0}
 --- !u!212 &112798155054343755
@@ -143,19 +143,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!111 &8464460190719949313
-Animation:
+--- !u!114 &275535358373071468
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7688862565686332030}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 45cc8bb296df13345b67eb2a4d220023, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 45cc8bb296df13345b67eb2a4d220023, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd7da6f00840ff44ad10b89c43a5853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashingDuration: 1
+  firstSprite: {fileID: 0}
+  secondSprite: {fileID: 0}
