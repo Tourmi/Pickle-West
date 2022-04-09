@@ -67,6 +67,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e2f51ea775f7e1143bacd2d5cfbc5104, type: 2}
+    - target: {fileID: 6491796493595184369, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491796493595184369, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -78,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Name
       value: CassidyBeans
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: fireOnLineOfSight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}

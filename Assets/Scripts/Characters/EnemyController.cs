@@ -10,17 +10,18 @@ public class EnemyController : MonoBehaviour
   private bool moveBack = false;
 
   [SerializeField]
+  public GunBehaviour gun;
+  [SerializeField]
   public GameObject target;
   [SerializeField]
-  public bool fireOnLineOfSight;
-  [SerializeField]
-  public float fireRate;
+  public float fireCooldown;
   [SerializeField]
   public float moveSpeed;
   [SerializeField]
   public float minimumRange;
   [SerializeField]
   public float maximumRange;
+  [SerializeField]
   public float backPercent;
 
   // Start is called before the first frame update
@@ -33,14 +34,17 @@ public class EnemyController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    MoveToTarget();
+    float distance = Vector2.Distance(this.rigidBody.position, this.targetRigidBody.position);
+    Vector2 towardTarget = (this.targetRigidBody.position - this.rigidBody.position).normalized;
+    this.lastShot -= Time.deltaTime;
+
+    MoveToTarget(distance, towardTarget);
+    Fire(distance, towardTarget);
   }
 
-  void MoveToTarget()
+  void MoveToTarget(float distance, Vector2 towardTarget)
   {
-    float distance = Vector2.Distance(this.rigidBody.position, this.targetRigidBody.position);
-    float backDistance = this.minimumRange / this.maximumRange * this.backPercent;
-    Vector2 towardTarget = (this.targetRigidBody.position - this.rigidBody.position).normalized;
+    float backDistance = (this.maximumRange - this.minimumRange) * this.backPercent;
 
     if (this.moveBack)
     {
@@ -56,5 +60,20 @@ public class EnemyController : MonoBehaviour
 
       if (distance <= this.minimumRange) this.moveBack = true;
     }
+  }
+
+  void Fire(float distance, Vector2 towardTarget)
+  {
+    bool isInRange = distance < this.maximumRange;
+    bool hasExpiredCooldown = this.lastShot <= 0;
+
+    if (isInRange && hasExpiredCooldown)
+    {
+      this.gun.SetDirection(towardTarget);
+      this.gun.Shoot();
+    }
+
+    if (hasExpiredCooldown)
+      this.lastShot = this.fireCooldown;
   }
 }
