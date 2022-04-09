@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
   const string ANIMATOR_LOOK = "direction";
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
   const string ANIMATOR_DAMAGE = "tookDamage";
 
   private Rigidbody2D rigidBody;
+  [SerializeField]
   private Animator spriteAnimator;
   private Vector2 move;
   private float lookDirection = 0;
@@ -21,7 +23,6 @@ public class PlayerController : MonoBehaviour
   void Start()
   {
     this.rigidBody = GetComponent<Rigidbody2D>();
-    this.spriteAnimator = GetComponentInChildren<Animator>();
   }
 
   // Update is called once per frame
