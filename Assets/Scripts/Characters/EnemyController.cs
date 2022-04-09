@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+  const string HURT_ANIM_DAMAGED = "damaged";
+
   private Rigidbody2D rigidBody;
   private Rigidbody2D targetRigidBody;
   private float lastShot = 0f;
   private bool moveBack = false;
 
+  [SerializeField]
+  private Animator hurtAnimator;
   [SerializeField]
   public GunBehaviour gun;
   [SerializeField]
@@ -75,5 +79,16 @@ public class EnemyController : MonoBehaviour
 
     if (hasExpiredCooldown)
       this.lastShot = this.fireCooldown;
+  }
+
+  public void tookDamage(int cur, int max)
+  {
+    this.hurtAnimator.SetTrigger(EnemyController.HURT_ANIM_DAMAGED);
+  }
+
+  public void died()
+  {
+    // TODO Spawn death poof
+    Destroy(this.gameObject);
   }
 }
