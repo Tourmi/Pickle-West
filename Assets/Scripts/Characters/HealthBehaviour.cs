@@ -6,12 +6,14 @@ using UnityEngine.Events;
 
 public class HealthBehaviour : MonoBehaviour
 {
-  public UnityEvent<int,int> OnHealthChanged;
+  public UnityEvent<int, int> OnHealthChanged;
   public UnityEvent OnHealthDepleted;
 
   [SerializeField]
   public int maximumHealth;
-  public int CurrentHealth { get; private set; }
+  [SerializeField]
+  private int currentHealth;
+  public int CurrentHealth { get => currentHealth; private set => currentHealth = value; }
 
   void Start()
   {
