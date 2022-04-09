@@ -14,15 +14,25 @@ public class PlayerController : MonoBehaviour
   [SerializeField]
   private Animator spriteAnimator;
   private Vector2 move;
+  private Vector2 shootDirection;
+  private float currShootTime;
   private float lookDirection = 0;
 
   [SerializeField]
+  public GunBehaviour gun;
+
+  [SerializeField]
   public float moveSpeed;
+  [SerializeField]
+  public float shootCooldown;
+  [SerializeField]
+  public float hitCooldown;
 
   // Start is called before the first frame update
   void Start()
   {
     this.rigidBody = GetComponent<Rigidbody2D>();
+    if (gun == null) Debug.LogError("Player is missing its gun.");
   }
 
   // Update is called once per frame
@@ -35,7 +45,23 @@ public class PlayerController : MonoBehaviour
       PlayerController.ANIMATOR_LOOK, this.lookDirection
     );
 
-    this.rigidBody.MovePosition(this.rigidBody.position + move * this.moveSpeed * Time.deltaTime);
+    this.rigidBody.velocity = Vector2.zero;
+    if (move != Vector2.zero)
+    {
+      this.rigidBody.MovePosition(this.rigidBody.position + this.moveSpeed * Time.deltaTime * move.normalized);
+    }
+
+    if (shootDirection != Vector2.zero)
+    {
+      gun.SetDirection(shootDirection);
+      if (currShootTime <= 0)
+      {
+        gun.Shoot();
+        currShootTime = shootCooldown;
+      }
+    }
+
+    currShootTime -= Time.deltaTime;
   }
 
   public void Move(InputAction.CallbackContext ctx)
@@ -46,5 +72,10 @@ public class PlayerController : MonoBehaviour
       (this.move.y < 0) ? 0 :
       (this.move.x > 0) ? 1 :
       (this.move.y > 0) ? 2 : 3;
+  }
+
+  public void Look(InputAction.CallbackContext ctx)
+  {
+    shootDirection = ctx.ReadValue<Vector2>();
   }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class AttackBehaviour : MonoBehaviour
 {
   [SerializeField]
-  private Rigidbody2D? owner;
+  public GameObject owner;
 
   [SerializeField]
   private int damage;
@@ -21,7 +21,7 @@ public class AttackBehaviour : MonoBehaviour
   private float velocity;
 
   [SerializeField]
-  private Vector2 direction;
+  public Vector2 direction;
   private Rigidbody2D body;
 
   private List<GameObject> alreadyHit;
@@ -43,7 +43,7 @@ public class AttackBehaviour : MonoBehaviour
     }
     else
     {
-      this.body.position = owner.position;
+      this.body.position = owner.GetComponent<Rigidbody2D>().position;
     }
   }
 
@@ -52,7 +52,7 @@ public class AttackBehaviour : MonoBehaviour
     var other = collision.collider.gameObject;
     var healthComponent = other.GetComponent<HealthBehaviour>();
     if (healthComponent != null &&
-      (owner != null ? owner.gameObject : null) != other &&
+      owner != other &&
       !alreadyHit.Contains(other))
     {
       healthComponent.TakeDamage(damage);
