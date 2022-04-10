@@ -12,27 +12,26 @@ public class HealthBehaviour : MonoBehaviour
   [SerializeField]
   public int maximumHealth;
   [SerializeField]
-  private int currentHealth;
-  public int CurrentHealth { get => currentHealth; private set => currentHealth = value; }
+  public int currentHealth;
 
   private AudioSource takeDamageSound;
 
   void Start()
   {
     if (OnHealthDepleted == null) OnHealthDepleted = new UnityEvent();
-    CurrentHealth = maximumHealth;
+    currentHealth = maximumHealth;
     takeDamageSound = GetComponent<AudioSource>();
   }
 
   public void TakeDamage(int amount)
   {
-    CurrentHealth -= amount;
-    if (takeDamageSound != null) takeDamageSound.Play();
-    if (CurrentHealth <= 0)
+    currentHealth -= amount;
+    if (takeDamageSound != null && amount > 0) takeDamageSound.Play();
+    if (currentHealth <= 0)
     {
-      CurrentHealth = 0;
+      currentHealth = 0;
       OnHealthDepleted?.Invoke();
     }
-    OnHealthChanged?.Invoke(CurrentHealth, maximumHealth);
+    OnHealthChanged?.Invoke(currentHealth, maximumHealth);
   }
 }

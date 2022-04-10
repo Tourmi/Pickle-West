@@ -48,12 +48,12 @@ public class GameManager : MonoBehaviour
 
   private float modeLerp;
 
-  // Start is called before the first frame update
-  void Start()
+  void OnEnable()
   {
     isCalm = false;
     lerp = 1f;
     modeLerp = 0;
+    lifeLostSoFar = 0;
   }
 
   // Update is called once per frame

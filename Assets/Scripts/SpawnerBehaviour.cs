@@ -16,6 +16,7 @@ public class SpawnerBehaviour : MonoBehaviour
 
   private BoxCollider2D spawnableRegion;
   private float currTime;
+  private bool stopped;
   // Start is called before the first frame update
   void Start()
   {
@@ -25,6 +26,8 @@ public class SpawnerBehaviour : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (stopped) return;
+
     if (currTime >= TimeBetweenWaves)
     {
       currTime = 0;
@@ -39,5 +42,16 @@ public class SpawnerBehaviour : MonoBehaviour
   {
     int randomIndex = Random.Range(0, waves.Count - 1);
     waves[randomIndex].Spawn(spawnableRegion.bounds, cameraRegion.bounds);
+  }
+
+  public void StartSpawner()
+  {
+    currTime = TimeBetweenWaves - 3;
+    stopped = false;
+  }
+
+  public void StopSpawner()
+  {
+    stopped = true;
   }
 }

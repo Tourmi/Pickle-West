@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(HealthBehaviour))]
 public class PlayerController : MonoBehaviour
 {
   public UnityEvent<bool> OnSwitchMode;
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
   const string ANIMATOR_DAMAGE = "tookDamage";
 
   private Rigidbody2D rigidBody;
+  private HealthBehaviour health;
   [SerializeField]
   public Animator spriteAnimator;
   private Vector2 move;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
   {
     gun.gameObject.SetActive(false);
     this.rigidBody = GetComponent<Rigidbody2D>();
+    this.health = GetComponent<HealthBehaviour>();
     if (gun == null) Debug.LogError("Player is missing its gun.");
     if (OnSwitchMode == null) OnSwitchMode = new();
   }
@@ -45,6 +47,17 @@ public class PlayerController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (health.currentHealth <= 0)
+    {
+      if (gun.gameObject.activeInHierarchy)
+      {
+        health.currentHealth = 1;
+        Switch();
+        health.currentHealth = 0;
+      }
+      return;
+    }
+
     this.rigidBody.velocity = Vector2.zero;
     this.spriteAnimator.SetBool(
       PlayerController.ANIMATOR_MOVE, (this.move.x != 0 || this.move.y != 0)
@@ -91,6 +104,8 @@ public class PlayerController : MonoBehaviour
 
   public void Switch()
   {
+    if (health.currentHealth <= 0) return;
+
     gun.gameObject.SetActive(!gun.gameObject.activeInHierarchy);
     sword.gameObject.SetActive(!sword.gameObject.activeInHierarchy);
     sword.CancelSwing();
