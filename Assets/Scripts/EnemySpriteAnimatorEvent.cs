@@ -9,18 +9,6 @@ public class EnemySpriteAnimatorEvent : MonoBehaviour
   public UnityEvent doneEvent;
   public UnityEvent dieEvent;
 
-  // Start is called before the first frame update
-  void Start()
-  {
-
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
-
   public void Fire()
   {
     this.fireEvent?.Invoke();

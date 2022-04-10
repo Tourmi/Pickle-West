@@ -49,22 +49,26 @@ public class AttackBehaviour : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D collider)
   {
+    if (this.owner == null) return;
+
     var other = collider.gameObject;
     var healthComponent = other.GetComponent<HealthBehaviour>();
-    if (healthComponent != null &&
-      owner != other &&
-      !alreadyHit.Contains(other))
+    AllianceBehaviour ownerAlliance = this.owner.GetComponent<AllianceBehaviour>();
+    AllianceBehaviour otherAlliance = other.GetComponent<AllianceBehaviour>();
+
+    bool otherHasHealth = healthComponent != null;
+    bool allHasAlliance = ownerAlliance != null && otherAlliance != null;
+    bool sameAlliance = allHasAlliance && ownerAlliance.alliance == otherAlliance.alliance;
+    bool wasAlreadyHit = alreadyHit.Contains(other);
+
+    if (otherHasHealth && !sameAlliance && !wasAlreadyHit)
     {
       healthComponent.TakeDamage(damage);
-    }
-    if (!isPiercing && other != owner)
-    {
-      Destroy(this.gameObject);
-    }
-    else
-    {
       alreadyHit.Add(other);
     }
+
+    if (!isPiercing && !sameAlliance)
+      Destroy(this.gameObject);
   }
 
   public void Delete()
