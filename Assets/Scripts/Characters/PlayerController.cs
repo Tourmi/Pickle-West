@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
   [SerializeField]
   public GunBehaviour gun;
+  [SerializeField]
+  public SwordBehaviour sword;
 
   [SerializeField]
   public float moveSpeed;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    gun.gameObject.SetActive(false);
     this.rigidBody = GetComponent<Rigidbody2D>();
     if (gun == null) Debug.LogError("Player is missing its gun.");
   }
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    this.rigidBody.velocity = Vector2.zero;
     this.spriteAnimator.SetBool(
       PlayerController.ANIMATOR_MOVE, (this.move.x != 0 || this.move.y != 0)
     );
@@ -54,6 +58,8 @@ public class PlayerController : MonoBehaviour
     if (shootDirection != Vector2.zero)
     {
       gun.SetDirection(shootDirection);
+      sword.SetDirection(shootDirection);
+      sword.Swing();
       if (currShootTime <= 0)
       {
         gun.Shoot();
@@ -77,5 +83,12 @@ public class PlayerController : MonoBehaviour
   public void Look(InputAction.CallbackContext ctx)
   {
     shootDirection = ctx.ReadValue<Vector2>();
+  }
+
+  public void Switch()
+  {
+    gun.gameObject.SetActive(!gun.gameObject.activeInHierarchy);
+    sword.gameObject.SetActive(!sword.gameObject.activeInHierarchy);
+    sword.CancelSwing();
   }
 }

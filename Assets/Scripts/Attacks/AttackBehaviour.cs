@@ -47,9 +47,9 @@ public class AttackBehaviour : MonoBehaviour
     }
   }
 
-  private void OnCollisionEnter2D(Collision2D collision)
+  private void OnTriggerEnter2D(Collider2D collider)
   {
-    var other = collision.collider.gameObject;
+    var other = collider.gameObject;
     var healthComponent = other.GetComponent<HealthBehaviour>();
     if (healthComponent != null &&
       owner != other &&
@@ -57,7 +57,7 @@ public class AttackBehaviour : MonoBehaviour
     {
       healthComponent.TakeDamage(damage);
     }
-    if (!isPiercing)
+    if (!isPiercing && other != owner)
     {
       Destroy(this.gameObject);
     }
@@ -65,5 +65,10 @@ public class AttackBehaviour : MonoBehaviour
     {
       alreadyHit.Add(other);
     }
+  }
+
+  public void Delete()
+  {
+    Destroy(this.gameObject);
   }
 }

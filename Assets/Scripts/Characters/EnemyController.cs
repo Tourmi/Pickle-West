@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
   void Start()
   {
     this.rigidBody = GetComponent<Rigidbody2D>();
-    this.targetRigidBody = this.target.GetComponent<Rigidbody2D>();
+    this.targetRigidBody = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
   }
 
   // Update is called once per frame

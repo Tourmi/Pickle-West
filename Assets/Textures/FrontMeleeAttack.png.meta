@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -131,21 +131,22 @@ TextureImporter:
       name: FrontMeleeAttack_0
       rect:
         serializedVersion: 2
-        x: 33
+        x: 0
         y: 0
-        width: 15
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -7.5, y: -3}
-        - {x: -7.5, y: 0}
-        - {x: 0.5, y: 1}
-        - {x: 4.5, y: 3}
-        - {x: 7.5, y: 3}
-        - {x: 6.5, y: -3}
+      - - {x: 7, y: -7}
+        - {x: 7, y: -8}
+        - {x: 23, y: -8}
+        - {x: 24, y: -7}
+        - {x: 24, y: 0}
+        - {x: 20, y: 0}
+        - {x: 11, y: -2}
       tessellationDetail: 0
       bones: []
       spriteID: dc2c559090816cd4b885e54b043d5d18
@@ -158,20 +159,21 @@ TextureImporter:
       name: FrontMeleeAttack_1
       rect:
         serializedVersion: 2
-        x: 81
-        y: 1
-        width: 15
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 48
+        y: 0
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 1.5, y: 4.5}
-        - {x: -7.5, y: -0.5}
-        - {x: -7.5, y: -4.5}
-        - {x: 7.5, y: -4.5}
-        - {x: 7.5, y: 4.5}
+      - - {x: 19, y: 4}
+        - {x: 10, y: 0}
+        - {x: 7, y: -5}
+        - {x: 7, y: -8}
+        - {x: 24, y: -8}
+        - {x: 24, y: 4}
       tessellationDetail: 0
       bones: []
       spriteID: 5a2aa9a05d46c084dba1ca56e1109a85
@@ -184,25 +186,22 @@ TextureImporter:
       name: FrontMeleeAttack_2
       rect:
         serializedVersion: 2
-        x: 129
-        y: 1
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 96
+        y: 0
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 3.5, y: 6.5}
-        - {x: -1.5, y: 6.5}
-        - {x: -2.5, y: 1.5}
-        - {x: -4.5, y: -0.5}
-        - {x: -5.5, y: -2.5}
-        - {x: -5.5, y: -6.5}
-        - {x: 0.5, y: -5.5}
-        - {x: 5.5, y: -4.5}
-        - {x: 5.5, y: 3.5}
-        - {x: 4.5, y: 4.5}
+      - - {x: 13, y: 8}
+        - {x: 7, y: 0}
+        - {x: 7, y: -8}
+        - {x: 19, y: -8}
+        - {x: 22, y: -2}
+        - {x: 22, y: 4}
+        - {x: 18, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 075a0d0ccade3b049a579283d5ce5bb2
@@ -215,21 +214,21 @@ TextureImporter:
       name: FrontMeleeAttack_3
       rect:
         serializedVersion: 2
-        x: 172
-        y: 1
-        width: 10
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 144
+        y: 0
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -5, y: 7.5}
-        - {x: -5, y: -5.5}
-        - {x: -3, y: -7.5}
-        - {x: 5, y: -7.5}
-        - {x: 5, y: 6.5}
-        - {x: 4, y: 7.5}
+      - - {x: 2, y: 8}
+        - {x: 2, y: -7}
+        - {x: 6, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: 5}
+        - {x: 13, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 73c5be1e99660014c857c6596712cdc2
@@ -242,21 +241,21 @@ TextureImporter:
       name: FrontMeleeAttack_4
       rect:
         serializedVersion: 2
-        x: 202
-        y: 1
-        width: 23
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 192
+        y: 0
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -11.5, y: 7.5}
-        - {x: -11.5, y: -0.5}
-        - {x: -6.5, y: -7.5}
-        - {x: 11.5, y: -7.5}
-        - {x: 11.5, y: 6.5}
-        - {x: 10.5, y: 7.5}
+      - - {x: -16, y: 8}
+        - {x: -16, y: 1}
+        - {x: -9, y: -8}
+        - {x: 11, y: -8}
+        - {x: 11, y: 7}
+        - {x: 9, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: ef5135a4228a2fd489de87f81d537bff
@@ -269,26 +268,32 @@ TextureImporter:
       name: FrontMeleeAttack_5
       rect:
         serializedVersion: 2
-        x: 241
-        y: 2
-        width: 20
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 240
+        y: 0
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -3, y: 6.5}
-        - {x: -8, y: 4.5}
-        - {x: -10, y: 2.5}
-        - {x: -10, y: -4.5}
-        - {x: -6, y: -6.5}
-        - {x: 10, y: -6.5}
-        - {x: 10, y: 6.5}
-      - - {x: -1, y: 2.5}
-        - {x: 0, y: 1.5}
-        - {x: 1, y: 2.5}
-        - {x: 0, y: 3.5}
+      - - {x: -3, y: 1}
+        - {x: -3, y: 3}
+        - {x: -6, y: 7}
+        - {x: -7, y: 8}
+        - {x: -16, y: 8}
+        - {x: -17, y: 7}
+        - {x: -19, y: 7}
+        - {x: -21, y: 5}
+        - {x: -24, y: 3}
+        - {x: -24, y: -3}
+        - {x: -23, y: -4}
+        - {x: -16, y: -5}
+        - {x: -13, y: -8}
+        - {x: -8, y: -8}
+        - {x: -5, y: -5}
+        - {x: -3, y: -5}
+        - {x: -1, y: -3}
       tessellationDetail: 1
       bones: []
       spriteID: c30cd5cc02d01ee4f9bc64f6d24c18f7
@@ -301,23 +306,22 @@ TextureImporter:
       name: FrontMeleeAttack_6
       rect:
         serializedVersion: 2
-        x: 289
-        y: 1
-        width: 15
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 288
+        y: 0
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -2.5, y: 4}
-        - {x: -4.5, y: 3}
-        - {x: -7.5, y: -1}
-        - {x: -7.5, y: -4}
-        - {x: 7.5, y: -4}
-        - {x: 7.5, y: 1}
-        - {x: 5.5, y: 2}
-        - {x: 3.5, y: 4}
+      - - {x: -12, y: 3}
+        - {x: -20, y: 3}
+        - {x: -24, y: -1}
+        - {x: -24, y: -8}
+        - {x: -7, y: -8}
+        - {x: -6, y: -6}
+        - {x: -6, y: 0}
       tessellationDetail: 0
       bones: []
       spriteID: 562d93e1a594714419103282efce7e0d
@@ -332,19 +336,19 @@ TextureImporter:
         serializedVersion: 2
         x: 336
         y: 0
-        width: 14
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -6, y: 2.5}
-        - {x: -7, y: 1.5}
-        - {x: -7, y: -2.5}
-        - {x: 6, y: -2.5}
-        - {x: 7, y: -1.5}
-        - {x: 7, y: 2.5}
+      - - {x: -24, y: -4}
+        - {x: -24, y: -8}
+        - {x: -11, y: -8}
+        - {x: -8, y: -5}
+        - {x: -9, y: -2}
+        - {x: -21, y: -1}
       tessellationDetail: 0
       bones: []
       spriteID: b76f43b7c854f374ea46d595a0207c8d

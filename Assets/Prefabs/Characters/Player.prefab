@@ -134,8 +134,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2587325854367523729}
+  m_Children: []
   m_Father: {fileID: 6625467488577084230}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -205,7 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 8563806269589515398}
   bullet: {fileID: 4804629179060475515, guid: b70128b52776bc549baf7cfa7f4b1618, type: 3}
-  gunCannon: {fileID: 2587325854367523729}
+  cannonDistance: 1.5
+  spread: 0
+  bulletCount: 0
 --- !u!1 &3247783945556506818
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &4032747572018413782
+--- !u!1 &3282978573540589322
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,29 +456,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2587325854367523729}
+  - component: {fileID: 6141065382194790313}
+  - component: {fileID: 3651150715637700594}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2587325854367523729
+--- !u!4 &6141065382194790313
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4032747572018413782}
+  m_GameObject: {fileID: 3282978573540589322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.39, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5148054385555629446}
-  m_RootOrder: 0
+  m_Father: {fileID: 6625467488577084230}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3651150715637700594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282978573540589322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8107fafe22ef3484194164ebcaaaed53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSwing: {fileID: 8801669750918978691, guid: 2be22dedec5a5d14f8ba9878fdbe49da, type: 3}
+  owner: {fileID: 8563806269589515398}
 --- !u!1 &8563806269589515398
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +530,7 @@ Transform:
   - {fileID: 8543158075792788267}
   - {fileID: 7487300265727686219}
   - {fileID: 5148054385555629446}
+  - {fileID: 6141065382194790313}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -534,9 +551,9 @@ Rigidbody2D:
   m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6886605878190563456
 MonoBehaviour:
@@ -596,7 +613,19 @@ MonoBehaviour:
     m_ActionId: 65679026-b6bf-4a71-a9e7-0a57da33d8ea
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6717157063916823688}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Switch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0e08d1b0-5c8e-4e07-8218-72a1ac9b5907
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -658,8 +687,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteAnimator: {fileID: 3749410180850711765}
   gun: {fileID: 8441880733540730780}
+  sword: {fileID: 3651150715637700594}
   moveSpeed: 0
-  shootCooldown: 0
+  shootCooldown: 0.25
   hitCooldown: 0
 --- !u!70 &348808019995284915
 CapsuleCollider2D:

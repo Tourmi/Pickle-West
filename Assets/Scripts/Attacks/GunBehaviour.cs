@@ -34,6 +34,8 @@ public class GunBehaviour : MonoBehaviour
 
   public void Shoot()
   {
+    if (!isActiveAndEnabled) return;
+
     if (bulletCount <= 1)
     {
       shootBullet(currDirection);
