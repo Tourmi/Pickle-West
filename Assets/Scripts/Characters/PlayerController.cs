@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+  public UnityEvent<bool> OnSwitchMode;
+
   const string ANIMATOR_LOOK = "direction";
   const string ANIMATOR_MOVE = "move";
   const string ANIMATOR_DAMAGE = "tookDamage";
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     gun.gameObject.SetActive(false);
     this.rigidBody = GetComponent<Rigidbody2D>();
     if (gun == null) Debug.LogError("Player is missing its gun.");
+    if (OnSwitchMode == null) OnSwitchMode = new();
   }
 
   // Update is called once per frame
@@ -90,5 +94,6 @@ public class PlayerController : MonoBehaviour
     gun.gameObject.SetActive(!gun.gameObject.activeInHierarchy);
     sword.gameObject.SetActive(!sword.gameObject.activeInHierarchy);
     sword.CancelSwing();
+    OnSwitchMode?.Invoke(gun.gameObject.activeInHierarchy);
   }
 }
