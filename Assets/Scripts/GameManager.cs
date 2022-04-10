@@ -5,10 +5,22 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+  [Header("Mode Settings")]
   [SerializeField]
-  private Image tooCalmBorder;
+  [Range(0, 1)]
+  private float maxBorderAlpha;
+
   [SerializeField]
-  private Image tooAngryBorder;
+  private float maxTimeInModes;
+  [SerializeField]
+  private float calmTimeMultiplier;
+  [SerializeField]
+  private float angryTimeMultiplier;
+  [SerializeField]
+  private float lifeLostPerSecond;
+  [SerializeField]
+  private AudioSource lifeLostSound;
+
 
   [SerializeField]
   private AudioLowPassFilter musicFilter;
@@ -21,18 +33,18 @@ public class GameManager : MonoBehaviour
   private float transitionDuration;
   [SerializeField]
   private float targetLowTimescale;
-  [SerializeField]
-  private float targetHighTimescale;
 
   [SerializeField]
-  private float maxTimeInModes;
+  private HealthBehaviour playerHealth;
   [SerializeField]
-  private float calmTimeMultiplier;
+  private Image tooCalmBorder;
   [SerializeField]
-  private float angryTimeMultiplier;
+  private Image tooAngryBorder;
 
   private bool isCalm;
   private float lerp;
+
+  private float lifeLostSoFar;
 
   private float modeLerp;
 
@@ -51,13 +63,25 @@ public class GameManager : MonoBehaviour
     lerp = Mathf.Clamp01(lerp);
 
     musicFilter.cutoffFrequency = Mathf.Lerp(targetLowFrequency, targetHighFrequency, lerp);
-    Time.timeScale = Mathf.Lerp(targetLowTimescale, targetHighTimescale, lerp);
+    Time.timeScale = Mathf.Lerp(targetLowTimescale, 1, lerp);
 
     modeLerp += (isCalm ? -calmTimeMultiplier : angryTimeMultiplier) * Time.deltaTime / maxTimeInModes / Time.timeScale;
     modeLerp = Mathf.Clamp(modeLerp, -1, 1);
 
-    tooCalmBorder.color = new Color(tooCalmBorder.color.r, tooCalmBorder.color.g, tooCalmBorder.color.b, Mathf.Clamp01(-modeLerp));
-    tooAngryBorder.color = new Color(tooAngryBorder.color.r, tooAngryBorder.color.g, tooAngryBorder.color.b, Mathf.Clamp01(modeLerp));
+    tooCalmBorder.color = new Color(tooCalmBorder.color.r, tooCalmBorder.color.g, tooCalmBorder.color.b, Mathf.Clamp01(-modeLerp) * maxBorderAlpha);
+    tooAngryBorder.color = new Color(tooAngryBorder.color.r, tooAngryBorder.color.g, tooAngryBorder.color.b, Mathf.Clamp01(modeLerp) * maxBorderAlpha);
+
+    if (Mathf.Abs(modeLerp) >= 1)
+    {
+      lifeLostSoFar += Time.deltaTime / Time.timeScale;
+      if (lifeLostSoFar >= 1)
+      {
+        int lifeLost = (int)(lifeLostSoFar * lifeLostPerSecond);
+        playerHealth.TakeDamage(lifeLost);
+        lifeLostSoFar -= 1;
+        lifeLostSound.Play();
+      }
+    }
   }
 
   public void HandleModeSwitch(bool isGunMode)
