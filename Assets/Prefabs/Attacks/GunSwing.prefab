@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  damage: 5
+  damage: 10
   isProjectile: 0
   isPiercing: 1
   velocity: 0
