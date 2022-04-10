@@ -68,7 +68,7 @@ public class GunBehaviour : MonoBehaviour
   private void shootBullet(Vector2 direction)
   {
     var bulletInstance = Instantiate(bullet);
-    bulletInstance.damage += bulletDamageModifier;
+    bulletInstance.damage += GetBulletDamage();
     bulletInstance.direction = direction;
     var cannonOffset = direction * cannonDistance;
     bulletInstance.transform.position = this.transform.position + new Vector3(cannonOffset.x, cannonOffset.y);
@@ -93,5 +93,10 @@ public class GunBehaviour : MonoBehaviour
   private float GetBulletSpread()
   {
     return Mathf.Min(360, spread + bulletUpgradeCount * 5 + bulletSpreadModifier);
+  }
+
+  private int GetBulletDamage()
+  {
+    return bulletDamageModifier + bulletUpgradeCount / 2;
   }
 }
