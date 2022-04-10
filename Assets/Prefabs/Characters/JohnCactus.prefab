@@ -104,6 +104,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: moveAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: backPercent
       value: 1
       objectReference: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7593723158293342976}
   - component: {fileID: 973523608078484798}
   - component: {fileID: 3895757282575610909}
+  - component: {fileID: 1381292186608133572}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -105,6 +106,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1381292186608133572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702683294822380024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc48c1f5ef4e2040b87572a4740db60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8299625107634358252}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: attackTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doneEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8299625107634358252}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: attackDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8299625107634358252}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: died
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3727326885446096274
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,10 +524,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a77819896c1e6d4aac489acb69c3c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3895757282575610909}
   hurtAnimator: {fileID: 1378885965120260247}
   gun: {fileID: 4462748349790466923}
-  target: {fileID: 0}
   fireCooldown: 0
+  moveAttack: 1
   moveSpeed: 0
   minimumRange: 0
   maximumRange: 0

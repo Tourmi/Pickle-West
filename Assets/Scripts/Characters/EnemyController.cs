@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class EnemyController : MonoBehaviour
 {
+  const string ANIM_ATK_CLIP = "attack";
+  const string ANIM_ATK = "attacking";
   const string HURT_ANIM_DAMAGED = "damaged";
 
+  private GameObject target;
   private Rigidbody2D rigidBody;
   private Rigidbody2D targetRigidBody;
   private float lastShot = 0f;
   private bool moveBack = false;
+  private bool attackBusy = false;
+  private bool hasAttackAnimation = false;
 
+  [SerializeField]
+  private Animator animator;
   [SerializeField]
   private Animator hurtAnimator;
   [SerializeField]
   public GunBehaviour gun;
   [SerializeField]
-  public GameObject target;
-  [SerializeField]
   public float fireCooldown;
+  [SerializeField]
+  public bool moveAttack = true;
   [SerializeField]
   public float moveSpeed;
   [SerializeField]
@@ -33,6 +41,11 @@ public class EnemyController : MonoBehaviour
   {
     this.rigidBody = GetComponent<Rigidbody2D>();
     this.targetRigidBody = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
+
+    AnimationClip anim = this.animator.runtimeAnimatorController.animationClips
+      .Where(ac => ac.name.Contains(ANIM_ATK_CLIP))
+      .SingleOrDefault();
+    this.hasAttackAnimation = anim != null;
   }
 
   // Update is called once per frame
@@ -42,8 +55,9 @@ public class EnemyController : MonoBehaviour
     Vector2 towardTarget = (this.targetRigidBody.position - this.rigidBody.position).normalized;
     this.lastShot -= Time.deltaTime;
 
-    MoveToTarget(distance, towardTarget);
     Fire(distance, towardTarget);
+    if (this.moveAttack || (!this.moveAttack && !this.attackBusy))
+      MoveToTarget(distance, towardTarget);
   }
 
   void MoveToTarget(float distance, Vector2 towardTarget)
@@ -73,12 +87,16 @@ public class EnemyController : MonoBehaviour
 
     if (isInRange && hasExpiredCooldown)
     {
-      this.gun.SetDirection(towardTarget);
-      this.gun.Shoot();
-    }
-
-    if (hasExpiredCooldown)
       this.lastShot = this.fireCooldown;
+      this.attackBusy = true;
+      if (this.hasAttackAnimation)
+        this.animator.SetTrigger(ANIM_ATK);
+      else
+      {
+        this.attackTrigger();
+        this.attackDone();
+      }
+    }
   }
 
   public void tookDamage(int cur, int max)
@@ -90,5 +108,18 @@ public class EnemyController : MonoBehaviour
   {
     // TODO Spawn death poof
     Destroy(this.gameObject);
+  }
+
+  public void attackTrigger()
+  {
+    Vector2 towardTarget = (this.targetRigidBody.position - this.rigidBody.position).normalized;
+
+    this.gun.SetDirection(towardTarget);
+    this.gun.Shoot();
+  }
+
+  public void attackDone()
+  {
+    this.attackBusy = false;
   }
 }
