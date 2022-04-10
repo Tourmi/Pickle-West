@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
   [SerializeField]
   public GunBehaviour gun;
   [SerializeField]
+  public GameObject deathPrefab;
+  [SerializeField]
   public float fireCooldown;
   [SerializeField]
   public bool moveAttack = true;
@@ -106,7 +108,7 @@ public class EnemyController : MonoBehaviour
 
   public void died()
   {
-    // TODO Spawn death poof
+    Instantiate(this.deathPrefab, this.transform.position, this.transform.rotation);
     Destroy(this.gameObject);
   }
 

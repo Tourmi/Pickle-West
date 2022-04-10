@@ -527,6 +527,7 @@ MonoBehaviour:
   animator: {fileID: 3895757282575610909}
   hurtAnimator: {fileID: 1378885965120260247}
   gun: {fileID: 4462748349790466923}
+  deathPrefab: {fileID: 8778234078375330828, guid: c43787c8df6eb6f4eb138abac7e9fd43, type: 3}
   fireCooldown: 0
   moveAttack: 1
   moveSpeed: 0
