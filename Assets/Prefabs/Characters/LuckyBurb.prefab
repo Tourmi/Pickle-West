@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3012688113016292966
+--- !u!1001 &4130309095649520717
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -57,12 +57,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 973523608078484798, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Size.y
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 973523608078484798, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1737846861, guid: 9dcd052cb1529c044b906c895321aa61, type: 3}
+      objectReference: {fileID: -762699167, guid: 286e33c9618597041a70b3a520cb56dc, type: 3}
     - target: {fileID: 973523608078484798, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -70,54 +70,35 @@ PrefabInstance:
     - target: {fileID: 3895757282575610909, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9e362075d9afe4a4e8f7b12c27106385, type: 2}
-    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 6945702133348219231, guid: c2e9b13d08ac16d41a5b8dc9ef056e7c, type: 3}
-    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: spread
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: bulletCount
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: m_Size.y
-      value: 2.5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: a3e23386785f6774aacaf5125d3a2b70, type: 2}
     - target: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Name
-      value: JohnCactus
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: backPercent
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: fireCooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: maximumRange
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8529826361878250043, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: maximumHealth
-      value: 12
+      value: LuckyBurb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+--- !u!1 &5253078458638802365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+  m_PrefabInstance: {fileID: 4130309095649520717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &-6429517323515535521
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253078458638802365}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3e23386785f6774aacaf5125d3a2b70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
