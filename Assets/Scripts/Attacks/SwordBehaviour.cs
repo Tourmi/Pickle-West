@@ -74,6 +74,6 @@ public class SwordBehaviour : MonoBehaviour
 
   public float GetScaling()
   {
-    return 1 + 0.1f * upgradeCount;
+    return 1 + 0.3f * (Mathf.Sqrt(upgradeCount));
   }
 }

@@ -18,6 +18,8 @@ public class BootManager : MonoBehaviour
   private PlayerController player;
   [SerializeField]
   private Text timerText;
+  [SerializeField]
+  private GameObject splashScreen;
 
   private float timeSinceGameOver;
   private bool isGameover;
@@ -27,7 +29,19 @@ public class BootManager : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    StartGame();
+    spawner.StopSpawner();
+
+    gameManager.SetActive(false);
+    player.spriteAnimator.gameObject.SetActive(false);
+    player.GetComponent<Collider2D>().enabled = false;
+    foreach (var hide in toHide)
+    {
+      hide.SetActive(false);
+    }
+    splashScreen.SetActive(true);
+    var playerHealth = player.GetComponent<HealthBehaviour>();
+    playerHealth.currentHealth = playerHealth.maximumHealth;
+    playerHealth.TakeDamage(0);
   }
 
   void Update()
@@ -40,6 +54,7 @@ public class BootManager : MonoBehaviour
 
   public void StartGame()
   {
+    splashScreen.SetActive(false);
     timeSinceGameOver = 0;
     isGameover = false;
     currTime = 0;
@@ -93,7 +108,7 @@ public class BootManager : MonoBehaviour
 
   public void Restart()
   {
-    if (timeSinceGameOver > 2)
+    if (timeSinceGameOver > 2 || (!isStarted && !isGameover))
     {
       StartGame();
     }

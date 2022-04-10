@@ -87,12 +87,12 @@ public class GunBehaviour : MonoBehaviour
 
   private int GetBulletCount()
   {
-    return bulletCount + bulletUpgradeCount + bulletCountModifier;
+    return bulletCount + Mathf.Min(bulletUpgradeCount, 19) + bulletCountModifier;
   }
 
   private float GetBulletSpread()
   {
-    return Mathf.Min(360, spread + bulletUpgradeCount * 5 + bulletSpreadModifier);
+    return Mathf.Min(360, spread + Mathf.Min(90, bulletUpgradeCount * 5) + bulletSpreadModifier);
   }
 
   private int GetBulletDamage()
