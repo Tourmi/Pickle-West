@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 3603882735118760856, guid: 32627a8acad76d842a07aac5f0f77b68, type: 3}
+    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: bulletCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6491796493595184369, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: moveSpeed
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: backPercent
@@ -101,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: fireCooldown
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: maximumRange

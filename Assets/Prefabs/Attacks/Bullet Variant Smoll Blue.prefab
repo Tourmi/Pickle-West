@@ -33,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: -1777131217, guid: bd756bd06c8341b43aad4e584b529e6d, type: 3}
     - target: {fileID: 790995432775314405, guid: 0f78f0a5d0170af46b4a3b863a1d2368, type: 3}
       propertyPath: damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 790995432775314405, guid: 0f78f0a5d0170af46b4a3b863a1d2368, type: 3}
       propertyPath: velocity
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2947049655051478721, guid: 0f78f0a5d0170af46b4a3b863a1d2368, type: 3}
       propertyPath: m_Radius

@@ -72,16 +72,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7523569376813793319, guid: 6f5d3d7b1e3cc8a459b24d06d88b058c, type: 3}
     - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: spread
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: bulletCount
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: cannonDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7593723158293342976, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.08
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7593723158293342976, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.03
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: m_Size.x
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: m_Size.y
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Name
@@ -97,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: fireCooldown
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: maximumRange
