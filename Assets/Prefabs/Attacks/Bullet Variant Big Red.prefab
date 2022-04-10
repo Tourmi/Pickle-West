@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 863613702, guid: bd756bd06c8341b43aad4e584b529e6d, type: 3}
+    - target: {fileID: 4460246178201809163, guid: be33e1d2fba2bc741a99b2fd6b1dac6a, type: 3}
+      propertyPath: velocity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6749637618302718096, guid: be33e1d2fba2bc741a99b2fd6b1dac6a, type: 3}
       propertyPath: m_Name
       value: Bullet Variant Big Red

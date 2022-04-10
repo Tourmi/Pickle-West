@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: damage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 790995432775314405, guid: 0f78f0a5d0170af46b4a3b863a1d2368, type: 3}
+      propertyPath: velocity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6621668166567862046, guid: 0f78f0a5d0170af46b4a3b863a1d2368, type: 3}
       propertyPath: m_RootOrder
       value: 0

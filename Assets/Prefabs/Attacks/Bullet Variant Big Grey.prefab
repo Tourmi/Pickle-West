@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: -1699348898, guid: bd756bd06c8341b43aad4e584b529e6d, type: 3}
     - target: {fileID: 4570552829918091249, guid: 298bad6244e0c964abaef8bc7429b846, type: 3}
       propertyPath: velocity
-      value: 60
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6855499489162278506, guid: 298bad6244e0c964abaef8bc7429b846, type: 3}
       propertyPath: m_Name
