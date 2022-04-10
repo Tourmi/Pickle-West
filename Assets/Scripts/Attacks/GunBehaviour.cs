@@ -18,6 +18,11 @@ public class GunBehaviour : MonoBehaviour
   [SerializeField]
   private int bulletCount;
 
+  private int bulletUpgradeCount;
+
+  public int bulletDamageModifier;
+  public int bulletCountModifier;
+  public int bulletSpreadModifier;
 
   // Start is called before the first frame update
   void Start()
@@ -25,6 +30,7 @@ public class GunBehaviour : MonoBehaviour
     if (bullet == null) Debug.LogError("Gun does not have a bullet assigned");
     if (owner == null) Debug.LogError("The gun owner is not assigned");
     shootSound = GetComponent<AudioSource>();
+    bulletUpgradeCount = 0;
   }
 
   public void SetDirection(Vector2 direction)
@@ -38,17 +44,17 @@ public class GunBehaviour : MonoBehaviour
     if (!isActiveAndEnabled) return;
     if (shootSound != null) shootSound.Play();
 
-    if (bulletCount <= 1)
+    if (GetBulletCount() <= 1)
     {
       shootBullet(currDirection);
       return;
     }
-    float tempBulletCount = bulletCount;
-    if (spread >= 360) tempBulletCount++;
+    float tempBulletCount = GetBulletCount();
+    if (GetBulletSpread() >= 360) tempBulletCount++;
 
-    float angleBetweenBullets = spread / (tempBulletCount - 1);
-    float currentAngle = -spread / 2;
-    for (int i = 0; i < bulletCount; i++)
+    float angleBetweenBullets = GetBulletSpread() / (tempBulletCount - 1);
+    float currentAngle = -GetBulletSpread() / 2;
+    for (int i = 0; i < GetBulletCount(); i++)
     {
       var sin = Mathf.Sin(currentAngle * Mathf.Deg2Rad);
       var cos = Mathf.Cos(currentAngle * Mathf.Deg2Rad);
@@ -57,15 +63,35 @@ public class GunBehaviour : MonoBehaviour
       shootBullet(dirr);
       currentAngle += angleBetweenBullets;
     }
-
   }
 
   private void shootBullet(Vector2 direction)
   {
     var bulletInstance = Instantiate(bullet);
+    bulletInstance.damage += bulletDamageModifier;
     bulletInstance.direction = direction;
     var cannonOffset = direction * cannonDistance;
     bulletInstance.transform.position = this.transform.position + new Vector3(cannonOffset.x, cannonOffset.y);
     bulletInstance.owner = this.owner;
+  }
+
+  public void ResetUpgrades()
+  {
+    bulletUpgradeCount = 0;
+  }
+
+  public void AddUpgrade()
+  {
+    bulletUpgradeCount++;
+  }
+
+  private int GetBulletCount()
+  {
+    return bulletCount + bulletUpgradeCount + bulletCountModifier;
+  }
+
+  private float GetBulletSpread()
+  {
+    return Mathf.Min(360, spread + bulletUpgradeCount * 5 + bulletSpreadModifier);
   }
 }

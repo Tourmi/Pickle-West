@@ -12,8 +12,8 @@ public class SpawnerBehaviour : MonoBehaviour
   [Range(1, 100)]
   private float timeBetweenWaves;
   [SerializeField]
-  [Range(0.1f, 0.99f)]
-  private float timeBetweenWavesMultiplier;
+  [Range(1, 20)]
+  private int timeBetweenDifficultyIncreases;
   [SerializeField]
   [Range(0.1f, 5f)]
   private float minimumTimeBetweenWaves;
@@ -22,7 +22,8 @@ public class SpawnerBehaviour : MonoBehaviour
 
   private BoxCollider2D spawnableRegion;
   private float currTime;
-  private float currTimeBetweenWaves;
+  private float currDiffTime;
+  private int currDifficulty;
   private bool stopped;
   // Start is called before the first frame update
   void Start()
@@ -35,34 +36,43 @@ public class SpawnerBehaviour : MonoBehaviour
   {
     if (stopped) return;
 
-    if (currTime >= currTimeBetweenWaves)
+    if (currTime >= GetTimeBetweenWaves())
     {
       currTime = 0;
 
       SpawnRandomWave();
-
-      currTimeBetweenWaves *= timeBetweenWavesMultiplier;
-      currTimeBetweenWaves = Mathf.Max(minimumTimeBetweenWaves, currTimeBetweenWaves);
     }
 
-    currTime += Time.deltaTime / Time.timeScale;
+    if (currDiffTime >= timeBetweenDifficultyIncreases)
+    {
+      currDiffTime = 0;
+      currDifficulty++;
+    }
+
+    currTime += Time.deltaTime;
+    currDiffTime += Time.unscaledDeltaTime;
   }
   
   private void SpawnRandomWave()
   {
     int randomIndex = Random.Range(0, waves.Count - 1);
-    waves[randomIndex].Spawn(spawnableRegion.bounds, cameraRegion.bounds);
+    waves[randomIndex].Spawn(spawnableRegion.bounds, cameraRegion.bounds, currDifficulty);
   }
 
   public void StartSpawner()
   {
-    currTime = timeBetweenWaves - 3;
-    currTimeBetweenWaves = timeBetweenWaves;
+    currDifficulty = 0;
+    currTime = GetTimeBetweenWaves() - 3;
     stopped = false;
   }
 
   public void StopSpawner()
   {
     stopped = true;
+  }
+
+  private float GetTimeBetweenWaves()
+  {
+    return timeBetweenWaves * (25.0f / (25.0f + currDifficulty));
   }
 }

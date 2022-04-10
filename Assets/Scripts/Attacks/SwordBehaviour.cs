@@ -14,6 +14,8 @@ public class SwordBehaviour : MonoBehaviour
   private Vector2 currDirection;
   private AttackBehaviour currentSwing;
 
+  private int upgradeCount;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -42,6 +44,8 @@ public class SwordBehaviour : MonoBehaviour
     currentSwing.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, currDirection));
     currentSwing.owner = this.owner;
     currentSwing.GetComponent<SpriteRenderer>().flipX = reverseSwing;
+    currentSwing.transform.localScale = new Vector3(GetScaling(), GetScaling());
+    currentSwing.damage += GetBonusDamage();
 
     reverseSwing = !reverseSwing;
 
@@ -51,5 +55,25 @@ public class SwordBehaviour : MonoBehaviour
   public void CancelSwing()
   {
     if (currentSwing != null) currentSwing.Delete();
+  }
+
+  public void AddUpgrade()
+  {
+    upgradeCount++;
+  }
+
+  public void ResetUpgrades()
+  {
+    upgradeCount = 0;
+  }
+
+  public int GetBonusDamage()
+  {
+    return upgradeCount;
+  }
+
+  public float GetScaling()
+  {
+    return 1 + 0.1f * upgradeCount;
   }
 }

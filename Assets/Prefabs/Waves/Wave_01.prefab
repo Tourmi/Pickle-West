@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c8745291499b043b34c03951f5eca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 5368289874815527841, guid: 914a46c43b405eb4da5057a4ced3b272, type: 3}
-  - {fileID: 6548522959392555402, guid: c61ad1c2efff8984b86716464a5a216d, type: 3}
-  - {fileID: 8337737070085710494, guid: 7b85772aa315233478c157a97ae1fee2, type: 3}
-  - {fileID: 8000106189986696013, guid: 43942d0dbb0dd5948b7a7fd2b3fc0c83, type: 3}
+  items:
+  - {fileID: 8155112398412846210, guid: 7b85772aa315233478c157a97ae1fee2, type: 3}
+  - {fileID: 8155112398412846210, guid: 7b85772aa315233478c157a97ae1fee2, type: 3}
+  - {fileID: 8155112398412846210, guid: 7b85772aa315233478c157a97ae1fee2, type: 3}
+  - {fileID: 8155112398412846210, guid: 7b85772aa315233478c157a97ae1fee2, type: 3}

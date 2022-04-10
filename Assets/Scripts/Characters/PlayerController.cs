@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
         Switch();
         health.currentHealth = 0;
       }
+      gun.ResetUpgrades();
+      sword.ResetUpgrades();
       return;
     }
 
@@ -110,5 +112,18 @@ public class PlayerController : MonoBehaviour
     sword.gameObject.SetActive(!sword.gameObject.activeInHierarchy);
     sword.CancelSwing();
     OnSwitchMode?.Invoke(gun.gameObject.activeInHierarchy);
+  }
+
+  public void ApplyUpgrade(UpgradeBehaviour.UpgradeTypes upgrade)
+  {
+    switch (upgrade)
+    {
+      case UpgradeBehaviour.UpgradeTypes.BulletCount:
+        gun.AddUpgrade();
+        break;
+      case UpgradeBehaviour.UpgradeTypes.SwordDamage:
+        sword.AddUpgrade();
+        break;
+    }
   }
 }

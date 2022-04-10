@@ -11,7 +11,7 @@ public class AttackBehaviour : MonoBehaviour
   public GameObject owner;
 
   [SerializeField]
-  private int damage;
+  public int damage;
 
   [SerializeField]
   private bool isProjectile;
