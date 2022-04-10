@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GunBehaviour : MonoBehaviour
 {
-  private float baseAngle;
   private Vector2 currDirection;
+  private AudioSource shootSound;
 
   [SerializeField]
   private GameObject owner;
@@ -18,12 +18,13 @@ public class GunBehaviour : MonoBehaviour
   [SerializeField]
   private int bulletCount;
 
+
   // Start is called before the first frame update
   void Start()
   {
     if (bullet == null) Debug.LogError("Gun does not have a bullet assigned");
     if (owner == null) Debug.LogError("The gun owner is not assigned");
-    baseAngle = this.transform.rotation.z;
+    shootSound = GetComponent<AudioSource>();
   }
 
   public void SetDirection(Vector2 direction)
@@ -35,6 +36,7 @@ public class GunBehaviour : MonoBehaviour
   public void Shoot()
   {
     if (!isActiveAndEnabled) return;
+    if (shootSound != null) shootSound.Play();
 
     if (bulletCount <= 1)
     {

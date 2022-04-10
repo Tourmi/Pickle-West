@@ -9,6 +9,7 @@ public class SwordBehaviour : MonoBehaviour
   [SerializeField]
   private GameObject owner;
 
+  private AudioSource swordSound;
   private bool reverseSwing;
   private Vector2 currDirection;
   private AttackBehaviour currentSwing;
@@ -17,6 +18,7 @@ public class SwordBehaviour : MonoBehaviour
   void Start()
   {
     reverseSwing = false;
+    swordSound = GetComponent<AudioSource>();
   }
 
   // Update is called once per frame
@@ -42,6 +44,8 @@ public class SwordBehaviour : MonoBehaviour
     currentSwing.GetComponent<SpriteRenderer>().flipX = reverseSwing;
 
     reverseSwing = !reverseSwing;
+
+    if (swordSound != null) swordSound.Play();
   }
   
   public void CancelSwing()

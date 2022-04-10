@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
   private Rigidbody2D rigidBody;
   [SerializeField]
-  private Animator spriteAnimator;
+  public Animator spriteAnimator;
   private Vector2 move;
   private Vector2 shootDirection;
   private float currShootTime;

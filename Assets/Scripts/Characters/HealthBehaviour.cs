@@ -15,15 +15,19 @@ public class HealthBehaviour : MonoBehaviour
   private int currentHealth;
   public int CurrentHealth { get => currentHealth; private set => currentHealth = value; }
 
+  private AudioSource takeDamageSound;
+
   void Start()
   {
     if (OnHealthDepleted == null) OnHealthDepleted = new UnityEvent();
     CurrentHealth = maximumHealth;
+    takeDamageSound = GetComponent<AudioSource>();
   }
 
   public void TakeDamage(int amount)
   {
     CurrentHealth -= amount;
+    if (takeDamageSound != null) takeDamageSound.Play();
     if (CurrentHealth <= 0)
     {
       CurrentHealth = 0;
