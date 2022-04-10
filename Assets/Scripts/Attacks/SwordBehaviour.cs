@@ -69,7 +69,7 @@ public class SwordBehaviour : MonoBehaviour
 
   public int GetBonusDamage()
   {
-    return upgradeCount;
+    return upgradeCount * 2;
   }
 
   public float GetScaling()
