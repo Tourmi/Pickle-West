@@ -1228,6 +1228,22 @@ PrefabInstance:
       propertyPath: OnHealthDepleted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2216273579104522862, guid: d73050b6cc0b3a844bc023f14cb448e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216273579104522862, guid: d73050b6cc0b3a844bc023f14cb448e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216273579104522862, guid: d73050b6cc0b3a844bc023f14cb448e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216273579104522862, guid: d73050b6cc0b3a844bc023f14cb448e2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.9995725
+      objectReference: {fileID: 0}
     - target: {fileID: 6625467488577084230, guid: d73050b6cc0b3a844bc023f14cb448e2, type: 3}
       propertyPath: m_RootOrder
       value: 2
