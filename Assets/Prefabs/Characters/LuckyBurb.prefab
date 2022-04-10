@@ -71,9 +71,49 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a3e23386785f6774aacaf5125d3a2b70, type: 2}
+    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1883715793285000687, guid: 094e218341f3ce34999b69e07f9f211f, type: 3}
+    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: spread
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: bulletCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Name
       value: LuckyBurb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: moveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: backPercent
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: fireCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: maximumRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: minimumRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529826361878250043, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: maximumHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}

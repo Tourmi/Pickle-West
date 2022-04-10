@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3603882735118760856, guid: 32627a8acad76d842a07aac5f0f77b68, type: 3}
+      propertyPath: velocity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4136841256338241078, guid: 32627a8acad76d842a07aac5f0f77b68, type: 3}
       propertyPath: m_Sprite
       value: 
