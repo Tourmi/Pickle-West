@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: fireCooldown
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5706564163229527670, guid: 914a46c43b405eb4da5057a4ced3b272, type: 3}
+      propertyPath: maximumHealth
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 914a46c43b405eb4da5057a4ced3b272, type: 3}

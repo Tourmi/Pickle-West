@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4462748349790466923, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: cannonDistance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7593723158293342976, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,11 +93,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Size.x
-      value: 0.0001
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Size.y
-      value: 0.0001
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664256059420084780, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8194124955381477872, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: m_Name
@@ -117,15 +121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: maximumRange
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8299625107634358252, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: minimumRange
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8529826361878250043, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
-      propertyPath: currentHealth
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8529826361878250043, guid: a33caa7768c6dd646a604107aaf0e264, type: 3}
       propertyPath: maximumHealth

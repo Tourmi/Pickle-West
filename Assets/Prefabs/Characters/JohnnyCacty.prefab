@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: JohnnyCacty
       objectReference: {fileID: 0}
+    - target: {fileID: 6894782341502518365, guid: c61ad1c2efff8984b86716464a5a216d, type: 3}
+      propertyPath: maximumHealth
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61ad1c2efff8984b86716464a5a216d, type: 3}

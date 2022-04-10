@@ -10,12 +10,19 @@ public class SpawnerBehaviour : MonoBehaviour
   public BoxCollider2D cameraRegion;
   [SerializeField]
   [Range(1, 100)]
-  private float TimeBetweenWaves;
+  private float timeBetweenWaves;
+  [SerializeField]
+  [Range(0.1f, 0.99f)]
+  private float timeBetweenWavesMultiplier;
+  [SerializeField]
+  [Range(0.1f, 5f)]
+  private float minimumTimeBetweenWaves;
   [SerializeField]
   private List<Wave> waves;
 
   private BoxCollider2D spawnableRegion;
   private float currTime;
+  private float currTimeBetweenWaves;
   private bool stopped;
   // Start is called before the first frame update
   void Start()
@@ -28,11 +35,14 @@ public class SpawnerBehaviour : MonoBehaviour
   {
     if (stopped) return;
 
-    if (currTime >= TimeBetweenWaves)
+    if (currTime >= currTimeBetweenWaves)
     {
       currTime = 0;
 
       SpawnRandomWave();
+
+      currTimeBetweenWaves *= timeBetweenWavesMultiplier;
+      currTimeBetweenWaves = Mathf.Max(minimumTimeBetweenWaves, currTimeBetweenWaves);
     }
 
     currTime += Time.deltaTime / Time.timeScale;
@@ -46,7 +56,8 @@ public class SpawnerBehaviour : MonoBehaviour
 
   public void StartSpawner()
   {
-    currTime = TimeBetweenWaves - 3;
+    currTime = timeBetweenWaves - 3;
+    currTimeBetweenWaves = timeBetweenWaves;
     stopped = false;
   }
 

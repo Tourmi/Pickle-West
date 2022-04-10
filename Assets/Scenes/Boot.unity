@@ -332,8 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBorderAlpha: 0.8
-  maxTimeInModes: 10
-  calmTimeMultiplier: 2
+  maxTimeInModes: 7
+  calmTimeMultiplier: 3
   angryTimeMultiplier: 1
   lifeLostPerSecond: 5
   lifeLostSound: {fileID: 442532038}
@@ -341,7 +341,7 @@ MonoBehaviour:
   targetLowFrequency: 500
   targetHighFrequency: 18000
   transitionDuration: 1
-  targetLowTimescale: 0.25
+  targetLowTimescale: 0.5
   playerHealth: {fileID: 312136583}
   tooCalmBorder: {fileID: 1663317293}
   tooAngryBorder: {fileID: 1293572510}

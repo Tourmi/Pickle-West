@@ -100820,7 +100820,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraRegion: {fileID: 0}
-  TimeBetweenWaves: 12
+  timeBetweenWaves: 10
+  timeBetweenWavesMultiplier: 0.95
+  minimumTimeBetweenWaves: 0.5
   waves:
   - {fileID: 9064795853132409526, guid: 89ba2f9edaf93f846819ad199662ca3e, type: 3}
   - {fileID: 6513536864191341491, guid: 1b74e66e4e288a64d84075bef235d54a, type: 3}

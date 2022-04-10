@@ -28,6 +28,11 @@ public class AttackBehaviour : MonoBehaviour
 
   private List<GameObject> alreadyHit = new List<GameObject>();
 
+  void Awake()
+  {
+    
+  }
+
   // Start is called before the first frame update
   void Start()
   {
@@ -51,6 +56,8 @@ public class AttackBehaviour : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D collider)
   {
+    if (this.ownerAlliance == null) this.ownerAlliance = this.owner.GetComponent<AllianceBehaviour>().alliance;
+
     var other = collider.gameObject;
     var healthComponent = other.GetComponent<HealthBehaviour>();
     AllianceBehaviour otherAlliance = other.GetComponent<AllianceBehaviour>();
