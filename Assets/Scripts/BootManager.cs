@@ -7,6 +7,8 @@ public class BootManager : MonoBehaviour
 {
   [SerializeField]
   private GameObject gameOverScreen;
+  [SerializeField]
+  private List<GameObject> toHide;
 
   private PlayerController player;
 
@@ -22,6 +24,10 @@ public class BootManager : MonoBehaviour
     player.spriteAnimator.gameObject.SetActive(false);
     player.GetComponent<PlayerInput>().enabled = false;
     player.GetComponent<Collider2D>().enabled = false;
+    foreach(var hide in toHide)
+    {
+      hide.SetActive(false);
+    }
 
     gameOverScreen.SetActive(true);
   }
