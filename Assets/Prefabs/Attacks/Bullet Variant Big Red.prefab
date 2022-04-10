@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304104059294170159, guid: be33e1d2fba2bc741a99b2fd6b1dac6a, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3804751763029315714, guid: be33e1d2fba2bc741a99b2fd6b1dac6a, type: 3}
       propertyPath: firstSprite
       value: 
